@@ -22,7 +22,8 @@ enum {
 #include <system_error>
 
 #ifdef __ANDROID_API__
-extern "C" void*  __mmap2(void*, size_t, int, int, int, size_t);
+extern "C" void*  mmap2(void*, size_t, int, int, int, size_t);
+#define __mmap2 mmap2
 #define mymmap __mmap2
 #define mmapoffset(x) ((x)>>12)
 #else
